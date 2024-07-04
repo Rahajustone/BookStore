@@ -1,9 +1,10 @@
 ﻿using FastEndpoints;
 using Microsoft.AspNetCore.Builder;
+using RiverBooks.Books.Endpoints;
 
 namespace RiverBooks.Books;
 
-internal class ListBooksEnpoints(IBookService bookService) : EndpointWithoutRequest<ListBooksResponse>
+internal class ListBooks(IBookService bookService) : EndpointWithoutRequest<ListBooksResponse>
 {
     // REPR
     private readonly IBookService _bookService = bookService;
