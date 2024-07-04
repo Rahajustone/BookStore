@@ -10,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{734C8A1B-E7FA-43E6-AD2D-D776490B2DEB}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
 Global
