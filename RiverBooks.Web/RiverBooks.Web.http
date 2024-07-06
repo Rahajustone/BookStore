@@ -1,6 +1,9 @@
-@RiverBooks.Web_HostAddress = http://localhost:5120
+@RiverBooksWeb_HostAddress = http://localhost:5120/books
 
-GET  {{RiverBooks.Web_HostAddress}}/books
-Accept: application/json
+GET  {{RiverBooksWeb_HostAddress}}/books
+Content-Type: application/json
+
+
+
 
 ###

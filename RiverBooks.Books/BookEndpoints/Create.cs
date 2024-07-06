@@ -18,6 +18,6 @@ internal class Create(IBookService bookService) : Endpoint<CreateBookRequest, Bo
 
         await _bookService.CreateBookAysnc(newBookDto);
 
-        await SendCreatedAtAsync<GetBookById>(new { newBookDto.Id }, newBookDto);
+        await SendCreatedAtAsync<GetById>(new { newBookDto.Id }, newBookDto);
     }
 }

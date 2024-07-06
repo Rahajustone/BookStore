@@ -4,7 +4,7 @@ using RiverBooks.Books.Endpoints;
 
 namespace RiverBooks.Books;
 
-internal class ListBooks(IBookService bookService) : EndpointWithoutRequest<ListBooksResponse>
+internal class List(IBookService bookService) : EndpointWithoutRequest<ListBooksResponse>
 {
     // REPR
     private readonly IBookService _bookService = bookService;

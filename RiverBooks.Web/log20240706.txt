@@ -1,0 +1,32 @@
+2024-07-06 08:39:12.198 -04:00 [INF] Registered 5 endpoints in 1,882 milliseconds.
+2024-07-06 08:39:12.293 -04:00 [INF] Now listening on: http://localhost:5120
+2024-07-06 08:39:12.295 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 08:39:12.296 -04:00 [INF] Hosting environment: Development
+2024-07-06 08:39:12.299 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 08:39:13.711 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger - null null
+2024-07-06 08:39:13.851 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger - 301 0 null 147.1418ms
+2024-07-06 08:39:13.861 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/index.html - null null
+2024-07-06 08:39:13.910 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/index.html - 200 null text/html;charset=utf-8 48.4153ms
+2024-07-06 08:39:13.924 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/swagger-ui.css - null null
+2024-07-06 08:39:13.926 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/swagger-ui-standalone-preset.js - null null
+2024-07-06 08:39:13.926 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 08:39:13.924 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/swagger-ui-bundle.js - null null
+2024-07-06 08:39:13.946 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 18.2607ms
+2024-07-06 08:39:13.935 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/_vs/browserLink - null null
+2024-07-06 08:39:13.978 -04:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-07-06 08:39:13.978 -04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-07-06 08:39:13.978 -04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-07-06 08:39:13.981 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 55.6046ms
+2024-07-06 08:39:13.982 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 57.7596ms
+2024-07-06 08:39:13.987 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/swagger-ui.css - 200 152034 text/css 63.6435ms
+2024-07-06 08:39:14.005 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.1607ms
+2024-07-06 08:39:14.411 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/v1/swagger.json - null null
+2024-07-06 08:39:14.433 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 08:39:14.519 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.463ms
+2024-07-06 08:39:23.587 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/books - null null
+2024-07-06 08:39:23.595 -04:00 [INF] Executing endpoint 'HTTP: GET /books'
+2024-07-06 08:39:25.919 -04:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Author], [b].[Price], [b].[Title]
+FROM [Books].[Books] AS [b]
+2024-07-06 08:39:26.000 -04:00 [INF] Executed endpoint 'HTTP: GET /books'
+2024-07-06 08:39:26.009 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/books - 200 null application/json 2421.6246ms

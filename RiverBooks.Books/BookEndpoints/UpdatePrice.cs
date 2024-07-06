@@ -2,7 +2,7 @@
 
 namespace RiverBooks.Books.Endpoints;
 
-internal class UpdateBookPrice(IBookService bookService) : Endpoint<UpdateBookPriceRequest, BookDto>
+internal class UpdatePrice(IBookService bookService) : Endpoint<UpdateBookPriceRequest, BookDto>
 {
     private readonly IBookService _bookService = bookService;
 
