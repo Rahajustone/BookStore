@@ -8,7 +8,7 @@ internal class UpdatePrice(IBookService bookService) : Endpoint<UpdateBookPriceR
 
     public override void Configure()
     {
-        Post("book/{Id}/priceHistory");
+        Post("books/{Id}/priceHistory");
         AllowAnonymous();
     }
 

@@ -1,0 +1,187 @@
+2024-07-06 10:47:40.020 -04:00 [INF] Registered 7 endpoints in 437 milliseconds.
+2024-07-06 10:47:40.134 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 10:47:40.241 -04:00 [INF] Now listening on: https://localhost:7056
+2024-07-06 10:47:40.243 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:47:40.244 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:47:40.245 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:47:40.877 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2024-07-06 10:47:41.086 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html; charset=utf-8 212.0268ms
+2024-07-06 10:47:41.110 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2024-07-06 10:47:41.110 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 10:47:41.128 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 17.9122ms
+2024-07-06 10:47:41.146 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.9787ms
+2024-07-06 10:47:41.415 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2024-07-06 10:47:41.428 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 10:47:41.709 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 294.6439ms
+2024-07-06 10:47:50.174 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7056/users/login - application/json 62
+2024-07-06 10:47:50.182 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:47:58.432 -04:00 [INF] Executed DbCommand (33ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:48:05.308 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:48:05.318 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: 'SigningKey' is required!
+   at FastEndpoints.Security.JwtBearer.CreateToken(Action`1 options)
+   at FastEndpoints.Security.JWTBearer.CreateToken(String signingKey, Nullable`1 expireAt, IEnumerable`1 permissions, IEnumerable`1 roles, IEnumerable`1 claims, String issuer, String audience, TokenSigningStyle signingStyle)
+   at FastEndpoints.Security.JWTBearer.CreateToken(String signingKey, Action`1 privileges, String issuer, String audience, Nullable`1 expireAt, TokenSigningStyle signingStyle)
+   at RiverBooks.Users.UserEndpoints.Login.HandleAsync(UserLoginRequest request, CancellationToken ct) in C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Users\UserEndpoints\Login.cs:line 42
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-07-06 10:48:05.336 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7056/users/login - 500 null text/plain; charset=utf-8 15162.3568ms
+2024-07-06 10:48:21.154 -04:00 [INF] Registered 7 endpoints in 177 milliseconds.
+2024-07-06 10:48:21.204 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 10:48:21.234 -04:00 [INF] Now listening on: http://localhost:5120
+2024-07-06 10:48:21.235 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:48:21.235 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:48:21.236 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:48:24.640 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users/login - application/json 64
+2024-07-06 10:48:24.665 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:48:25.216 -04:00 [INF] Executed DbCommand (12ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:48:25.322 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:48:25.327 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users/login - 200 null application/json 688.0023ms
+2024-07-06 10:51:48.183 -04:00 [INF] Application is shutting down...
+2024-07-06 11:09:58.737 -04:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-07-06 11:09:58.765 -04:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-07-06 11:09:58.769 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-07-06 11:09:58.770 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-07-06 11:09:58.778 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-07-06 11:09:58.787 -04:00 [INF] Applying migration '20240706150911_CartItems'.
+2024-07-06 11:09:58.826 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users].[AspNetUsers] ADD [FullName] nvarchar(max) NULL;
+2024-07-06 11:09:58.832 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users].[CartItem] (
+    [id] uniqueidentifier NOT NULL,
+    [BookId] uniqueidentifier NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [Quantity] int NOT NULL,
+    [UnitPrice] decimal(18,6) NOT NULL,
+    [ApplicationUserId] nvarchar(450) NULL,
+    CONSTRAINT [PK_CartItem] PRIMARY KEY ([id]),
+    CONSTRAINT [FK_CartItem_AspNetUsers_ApplicationUserId] FOREIGN KEY ([ApplicationUserId]) REFERENCES [Users].[AspNetUsers] ([Id])
+);
+2024-07-06 11:09:58.834 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_CartItem_ApplicationUserId] ON [Users].[CartItem] ([ApplicationUserId]);
+2024-07-06 11:09:58.836 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20240706150911_CartItems', N'8.0.6');
+2024-07-06 14:36:56.191 -04:00 [INF] Registered 9 endpoints in 1,923 milliseconds.
+2024-07-06 14:36:56.496 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 14:36:56.529 -04:00 [INF] Now listening on: http://localhost:5120
+2024-07-06 14:36:56.531 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 14:36:56.531 -04:00 [INF] Hosting environment: Development
+2024-07-06 14:36:56.532 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 14:37:15.219 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/cart - application/json 74
+2024-07-06 14:37:15.283 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-07-06 14:37:15.288 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+2024-07-06 14:37:15.303 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+Handler assertion should evaluate to true.
+2024-07-06 14:37:15.308 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-07-06 14:37:15.314 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/cart - 401 0 null 94.8316ms
+2024-07-06 14:37:21.536 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users/login - application/json 64
+2024-07-06 14:37:21.543 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 14:37:22.782 -04:00 [INF] Executed DbCommand (20ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[FullName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 14:37:22.942 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 14:37:22.947 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users/login - 200 null application/json 1410.5342ms
+2024-07-06 14:37:55.929 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/cart - application/json 74
+2024-07-06 14:37:55.931 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-07-06 14:37:55.933 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+2024-07-06 14:37:55.934 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+Handler assertion should evaluate to true.
+2024-07-06 14:37:55.934 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-07-06 14:37:55.935 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/cart - 401 0 null 5.9678ms
+2024-07-06 14:38:50.482 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users/login - application/json 64
+2024-07-06 14:38:50.484 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 14:38:50.521 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[FullName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 14:38:50.572 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 14:38:50.574 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users/login - 200 null application/json 91.2057ms
+2024-07-06 14:39:42.309 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/cart - application/json 74
+2024-07-06 14:39:42.310 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-07-06 14:39:42.312 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+2024-07-06 14:39:42.314 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+Handler assertion should evaluate to true.
+2024-07-06 14:39:42.315 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-07-06 14:39:42.316 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/cart - 401 0 null 7.2542ms
+2024-07-06 14:40:07.656 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/cart - application/json 74
+2024-07-06 14:40:07.659 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-07-06 14:40:07.661 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+2024-07-06 14:40:07.662 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+Handler assertion should evaluate to true.
+2024-07-06 14:40:07.662 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-07-06 14:40:07.663 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/cart - 401 0 null 6.4538ms
+2024-07-06 14:40:46.697 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/cart - application/json 74
+2024-07-06 14:40:46.701 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-07-06 14:40:46.702 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+2024-07-06 14:40:46.703 -04:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+Handler assertion should evaluate to true.
+2024-07-06 14:40:46.703 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-07-06 14:40:46.704 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/cart - 401 0 null 7.3587ms
+2024-07-06 14:40:55.192 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/cart - null null
+2024-07-06 14:40:55.194 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-07-06 14:40:55.194 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+2024-07-06 14:40:55.195 -04:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-07-06 14:40:55.195 -04:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-07-06 14:40:55.196 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/cart - 405 0 null 4.1098ms
+2024-07-06 14:41:07.974 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/cart - null null
+2024-07-06 14:41:07.976 -04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-07-06 14:41:07.978 -04:00 [INF] Bearer was not authenticated. Failure message: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+2024-07-06 14:41:07.979 -04:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-07-06 14:41:07.979 -04:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-07-06 14:41:07.980 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/cart - 405 0 null 5.7723ms
+2024-07-06 14:45:01.731 -04:00 [INF] Application is shutting down...

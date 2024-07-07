@@ -1,9 +1,49 @@
-@RiverBooksWeb_HostAddress = http://localhost:5120/books
+@RiverBooksWeb_HostAddress = https://localhost:7056
 
 GET  {{RiverBooksWeb_HostAddress}}/books
 Content-Type: application/json
 
+###
+@userId = 3fa85f64-5717-4562-b3fc-2c963f66afa6
+GET {{RiverBooksWeb_HostAddress}}/books/{{userId}}
+Content-Type: application/json
 
+###
+POST {{RiverBooksWeb_HostAddress}}/users
+Accept: application/json
+Content-Type: application/json
+{
+  "email": "raha123@test.com",
+  "password": "Pass@word1"
+}
+###
 
+POST {{RiverBooksWeb_HostAddress}}/users/login
+Accept: application/json
+Content-Type: application/json
+{
+  "email": "raha123@test.com",
+  "password": "Pass@word1"
+}
+###
+@token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJyYWhhMTIzQHRlc3QuY29tIiwiaWF0IjoxNzIwMzU1NTkyLCJleHAiOjE3MjAzNTkxOTIsIm5iZiI6MTcyMDM1NTU5Mn0.yS6t5J_M90sbCI4V2ywhQHMkQxnOrW2EW-RpV-bY8To
+
+# Add item to cart
+POST {{RiverBooksWeb_HostAddress}}/cart
+Accept: text/plain
+Authorization: Bearer {{token}}
+Content-Type: application/json
+{
+  "bookId": "e03696c8-78a3-49e7-bc48-481ef94f0483",
+  "quantity": 1
+}
+
+###
+@token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJyYWhhMTIzQHRlc3QuY29tIiwiaWF0IjoxNzIwMzU1NTkyLCJleHAiOjE3MjAzNTkxOTIsIm5iZiI6MTcyMDM1NTU5Mn0.yS6t5J_M90sbCI4V2ywhQHMkQxnOrW2EW-RpV-bY8To
+
+# List
+GET {{RiverBooksWeb_HostAddress}}/cart
+Accept: application/json
+Authorization: Bearer {{token}}
 
 ###

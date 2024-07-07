@@ -30,3 +30,460 @@ SELECT [b].[Id], [b].[Author], [b].[Price], [b].[Title]
 FROM [Books].[Books] AS [b]
 2024-07-06 08:39:26.000 -04:00 [INF] Executed endpoint 'HTTP: GET /books'
 2024-07-06 08:39:26.009 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/books - 200 null application/json 2421.6246ms
+2024-07-06 09:23:05.964 -04:00 [INF] Registered 6 endpoints in 531 milliseconds.
+2024-07-06 09:23:06.067 -04:00 [INF] Now listening on: https://localhost:7056
+2024-07-06 09:23:06.069 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 09:23:06.070 -04:00 [INF] Hosting environment: Development
+2024-07-06 09:23:06.071 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 09:23:06.890 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2024-07-06 09:23:07.062 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 175.6771ms
+2024-07-06 09:23:07.075 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 09:23:07.082 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 9.4769ms
+2024-07-06 09:23:07.084 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2024-07-06 09:23:07.134 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.8449ms
+2024-07-06 09:23:07.446 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2024-07-06 09:23:07.457 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 09:23:07.555 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 109.662ms
+2024-07-06 09:31:22.427 -04:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-07-06 09:31:22.456 -04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-07-06 09:31:22.459 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-07-06 09:31:22.461 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-07-06 09:31:22.473 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-07-06 09:31:22.484 -04:00 [INF] Applying migration '20240706132957_Initial'.
+2024-07-06 09:31:22.532 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF SCHEMA_ID(N'Users') IS NULL EXEC(N'CREATE SCHEMA [Users];');
+2024-07-06 09:31:22.538 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users].[AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2024-07-06 09:31:22.540 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users].[AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [Discriminator] nvarchar(21) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2024-07-06 09:31:22.543 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users].[AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Users].[AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2024-07-06 09:31:22.545 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users].[AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users].[AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2024-07-06 09:31:22.549 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users].[AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users].[AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2024-07-06 09:31:22.552 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users].[AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Users].[AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users].[AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2024-07-06 09:31:22.556 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users].[AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users].[AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2024-07-06 09:31:22.558 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [Users].[AspNetRoleClaims] ([RoleId]);
+2024-07-06 09:31:22.560 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [Users].[AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2024-07-06 09:31:22.561 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [Users].[AspNetUserClaims] ([UserId]);
+2024-07-06 09:31:22.564 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [Users].[AspNetUserLogins] ([UserId]);
+2024-07-06 09:31:22.566 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [Users].[AspNetUserRoles] ([RoleId]);
+2024-07-06 09:31:22.568 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [Users].[AspNetUsers] ([NormalizedEmail]);
+2024-07-06 09:31:22.570 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [Users].[AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2024-07-06 09:31:22.573 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20240706132957_Initial', N'8.0.6');
+2024-07-06 09:31:43.955 -04:00 [INF] Registered 6 endpoints in 377 milliseconds.
+2024-07-06 09:31:44.085 -04:00 [INF] Now listening on: https://localhost:7056
+2024-07-06 09:31:44.087 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 09:31:44.088 -04:00 [INF] Hosting environment: Development
+2024-07-06 09:31:44.091 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 09:31:44.503 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2024-07-06 09:31:44.692 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 192.3479ms
+2024-07-06 09:31:44.699 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 09:31:44.707 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 8.212ms
+2024-07-06 09:31:44.708 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2024-07-06 09:31:44.768 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.2108ms
+2024-07-06 09:31:45.182 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2024-07-06 09:31:45.193 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 09:31:45.291 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 108.2064ms
+2024-07-06 09:31:51.350 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7056/users - application/json 61
+2024-07-06 09:31:51.355 -04:00 [INF] Executing endpoint 'HTTP: POST /users'
+2024-07-06 09:31:52.468 -04:00 [INF] Executed DbCommand (48ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-07-06 09:31:52.643 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 21), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Discriminator], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2024-07-06 09:31:52.654 -04:00 [INF] Executed endpoint 'HTTP: POST /users'
+2024-07-06 09:31:52.663 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7056/users - 200 null null 1313.812ms
+2024-07-06 10:19:54.516 -04:00 [INF] Registered 7 endpoints in 481 milliseconds.
+2024-07-06 10:19:54.636 -04:00 [INF] Now listening on: https://localhost:7056
+2024-07-06 10:19:54.637 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:19:54.638 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:19:54.639 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:19:54.978 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2024-07-06 10:19:55.132 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 157.1038ms
+2024-07-06 10:19:55.137 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7056/users/login - application/json 61
+2024-07-06 10:19:55.142 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 10:19:55.145 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:19:55.155 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2024-07-06 10:19:55.155 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 13.51ms
+2024-07-06 10:19:55.194 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.3028ms
+2024-07-06 10:19:55.680 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2024-07-06 10:19:55.688 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 10:19:55.760 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 80.5735ms
+2024-07-06 10:19:56.857 -04:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:19:56.978 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:19:56.983 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7056/users/login - 401 null null 1846.0598ms
+2024-07-06 10:20:00.042 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7056/users/login - application/json 61
+2024-07-06 10:20:00.045 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:20:00.081 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:20:00.136 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:20:00.137 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7056/users/login - 401 null null 95.5593ms
+2024-07-06 10:20:03.494 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7056/users/login - application/json 61
+2024-07-06 10:20:03.497 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:20:03.510 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:20:03.599 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:20:03.603 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7056/users/login - 401 null null 108.3767ms
+2024-07-06 10:21:27.834 -04:00 [INF] Registered 7 endpoints in 349 milliseconds.
+2024-07-06 10:21:27.935 -04:00 [INF] Now listening on: https://localhost:7056
+2024-07-06 10:21:27.936 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:21:27.937 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:21:27.938 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:21:29.168 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2024-07-06 10:21:29.307 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 142.2365ms
+2024-07-06 10:21:29.319 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 10:21:29.325 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2024-07-06 10:21:29.332 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 13.3923ms
+2024-07-06 10:21:29.369 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.6788ms
+2024-07-06 10:21:29.662 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2024-07-06 10:21:29.672 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 10:21:29.759 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 96.5115ms
+2024-07-06 10:21:59.497 -04:00 [INF] Registered 7 endpoints in 183 milliseconds.
+2024-07-06 10:21:59.528 -04:00 [INF] Now listening on: http://localhost:5120
+2024-07-06 10:21:59.529 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:21:59.530 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:21:59.530 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:22:25.561 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users - application/json 61
+2024-07-06 10:22:25.585 -04:00 [INF] Executing endpoint 'HTTP: POST /users'
+2024-07-06 10:22:26.261 -04:00 [INF] Executed DbCommand (21ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-07-06 10:22:26.311 -04:00 [INF] Executed endpoint 'HTTP: POST /users'
+2024-07-06 10:22:26.317 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users - 200 null null 756.6193ms
+2024-07-06 10:22:38.677 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/books - null null
+2024-07-06 10:22:38.681 -04:00 [INF] Executing endpoint 'HTTP: GET /books'
+2024-07-06 10:22:38.744 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Author], [b].[Price], [b].[Title]
+FROM [Books].[Books] AS [b]
+2024-07-06 10:22:38.764 -04:00 [INF] Executed endpoint 'HTTP: GET /books'
+2024-07-06 10:22:38.766 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/books - 200 null application/json 89.2179ms
+2024-07-06 10:24:14.101 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/user/3fa85f64-5717-4562-b3fc-2c963f66afa6} - null null
+2024-07-06 10:24:14.104 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/user/3fa85f64-5717-4562-b3fc-2c963f66afa6} - 404 0 null 2.8569ms
+2024-07-06 10:24:14.106 -04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5120/user/3fa85f64-5717-4562-b3fc-2c963f66afa6%7D, Response status code: 404
+2024-07-06 10:24:59.160 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/user/3fa85f64-5717-4562-b3fc-2c963f66afa6} - null null
+2024-07-06 10:24:59.163 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/user/3fa85f64-5717-4562-b3fc-2c963f66afa6} - 404 0 null 2.7815ms
+2024-07-06 10:24:59.166 -04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5120/user/3fa85f64-5717-4562-b3fc-2c963f66afa6%7D, Response status code: 404
+2024-07-06 10:25:24.436 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/books/3fa85f64-5717-4562-b3fc-2c963f66afa6} - null null
+2024-07-06 10:25:24.438 -04:00 [INF] Executing endpoint 'HTTP: GET /books/{Id}'
+2024-07-06 10:25:24.446 -04:00 [INF] Executed endpoint 'HTTP: GET /books/{Id}'
+2024-07-06 10:25:24.447 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/books/3fa85f64-5717-4562-b3fc-2c963f66afa6} - 400 null application/problem+json 10.9401ms
+2024-07-06 10:26:42.796 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/books/3fa85f64-5717-4562-b3fc-2c963f66afa6 - null null
+2024-07-06 10:26:42.798 -04:00 [INF] Executing endpoint 'HTTP: GET /books/{Id}'
+2024-07-06 10:26:42.838 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Author], [b].[Price], [b].[Title]
+FROM [Books].[Books] AS [b]
+WHERE [b].[Id] = @__get_Item_0
+2024-07-06 10:26:42.842 -04:00 [INF] Executed endpoint 'HTTP: GET /books/{Id}'
+2024-07-06 10:26:42.843 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/books/3fa85f64-5717-4562-b3fc-2c963f66afa6 - 200 null application/json 46.45ms
+2024-07-06 10:27:08.653 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/books/3fa85f64-5717-4562-b3fc-2c963f66afa6 - null null
+2024-07-06 10:27:08.654 -04:00 [INF] Executing endpoint 'HTTP: GET /books/{Id}'
+2024-07-06 10:27:08.658 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Author], [b].[Price], [b].[Title]
+FROM [Books].[Books] AS [b]
+WHERE [b].[Id] = @__get_Item_0
+2024-07-06 10:27:08.659 -04:00 [INF] Executed endpoint 'HTTP: GET /books/{Id}'
+2024-07-06 10:27:08.660 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/books/3fa85f64-5717-4562-b3fc-2c963f66afa6 - 200 null application/json 6.9433ms
+2024-07-06 10:31:49.381 -04:00 [INF] Application is shutting down...
+2024-07-06 10:36:56.151 -04:00 [INF] Registered 7 endpoints in 904 milliseconds.
+2024-07-06 10:36:56.490 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 10:36:56.548 -04:00 [INF] Now listening on: http://localhost:5120
+2024-07-06 10:36:56.549 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:36:56.550 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:36:56.551 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:38:00.856 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users - application/json 61
+2024-07-06 10:38:00.915 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method20(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-07-06 10:38:00.924 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users - 500 null text/plain; charset=utf-8 68.3589ms
+2024-07-06 10:38:19.720 -04:00 [INF] Application is shutting down...
+2024-07-06 10:38:23.703 -04:00 [INF] Registered 7 endpoints in 191 milliseconds.
+2024-07-06 10:38:23.760 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 10:38:23.792 -04:00 [INF] Now listening on: http://localhost:5120
+2024-07-06 10:38:23.793 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:38:23.794 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:38:23.795 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:38:29.585 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users - application/json 61
+2024-07-06 10:38:29.613 -04:00 [INF] Executing endpoint 'HTTP: POST /users'
+2024-07-06 10:38:30.932 -04:00 [INF] Executed DbCommand (21ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-07-06 10:38:30.986 -04:00 [INF] Executed endpoint 'HTTP: POST /users'
+2024-07-06 10:38:30.992 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users - 200 null null 1407.924ms
+2024-07-06 10:38:34.260 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users/login - application/json 61
+2024-07-06 10:38:34.263 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:38:34.312 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:38:34.363 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:38:34.365 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users/login - 401 null null 104.6967ms
+2024-07-06 10:39:20.915 -04:00 [INF] Application is shutting down...
+2024-07-06 10:39:33.301 -04:00 [INF] Registered 7 endpoints in 1,916 milliseconds.
+2024-07-06 10:39:33.671 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 10:39:33.707 -04:00 [INF] Now listening on: http://localhost:5120
+2024-07-06 10:39:33.707 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:39:33.707 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:39:33.707 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:39:33.883 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/index.html - null null
+2024-07-06 10:39:34.006 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/index.html - 200 null text/html; charset=utf-8 124.3049ms
+2024-07-06 10:39:34.084 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/index.css - null null
+2024-07-06 10:39:34.086 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 10:39:34.088 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 1.7066ms
+2024-07-06 10:39:34.092 -04:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-07-06 10:39:34.092 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/index.css - 200 218 text/css 8.5214ms
+2024-07-06 10:39:34.430 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/v1/swagger.json - null null
+2024-07-06 10:39:34.473 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 10:39:34.768 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 338.3075ms
+2024-07-06 10:39:56.131 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/books - null null
+2024-07-06 10:39:56.133 -04:00 [INF] Executing endpoint 'HTTP: GET /books'
+2024-07-06 10:39:56.732 -04:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Author], [b].[Price], [b].[Title]
+FROM [Books].[Books] AS [b]
+2024-07-06 10:39:56.773 -04:00 [INF] Executed endpoint 'HTTP: GET /books'
+2024-07-06 10:39:56.776 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/books - 200 null application/json 644.934ms
+2024-07-06 10:40:31.897 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users - application/json 58
+2024-07-06 10:40:31.898 -04:00 [INF] Executing endpoint 'HTTP: POST /users'
+2024-07-06 10:40:32.231 -04:00 [INF] Executed DbCommand (21ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-07-06 10:40:32.259 -04:00 [INF] Executed endpoint 'HTTP: POST /users'
+2024-07-06 10:40:32.259 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users - 200 null null 361.7569ms
+2024-07-06 10:40:50.945 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users/login - application/json 58
+2024-07-06 10:40:50.946 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:40:50.996 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:40:51.050 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:40:51.050 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users/login - 401 null null 104.3184ms
+2024-07-06 10:42:51.315 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users - application/json 64
+2024-07-06 10:42:51.316 -04:00 [INF] Executing endpoint 'HTTP: POST /users'
+2024-07-06 10:42:51.399 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-07-06 10:42:51.483 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 21), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Discriminator], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2024-07-06 10:42:51.490 -04:00 [INF] Executed endpoint 'HTTP: POST /users'
+2024-07-06 10:42:51.490 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users - 200 null null 175.2358ms
+2024-07-06 10:42:53.825 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users/login - application/json 64
+2024-07-06 10:42:53.826 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:42:53.828 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:42:53.893 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:42:53.893 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users/login - 401 null null 67.9743ms
+2024-07-06 10:43:31.118 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/index.html - null null
+2024-07-06 10:43:31.119 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/index.html - 200 null text/html; charset=utf-8 0.9519ms
+2024-07-06 10:43:31.168 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 10:43:31.169 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 0.4656ms
+2024-07-06 10:43:31.509 -04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5120/swagger/v1/swagger.json - null null
+2024-07-06 10:43:31.509 -04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5120/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 0.6994ms
+2024-07-06 10:43:40.302 -04:00 [INF] Application is shutting down...
+2024-07-06 10:44:09.590 -04:00 [INF] Registered 7 endpoints in 478 milliseconds.
+2024-07-06 10:44:09.702 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 10:44:09.823 -04:00 [INF] Now listening on: https://localhost:7056
+2024-07-06 10:44:09.824 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:44:09.825 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:44:09.825 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:44:10.741 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2024-07-06 10:44:10.994 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html; charset=utf-8 258.6396ms
+2024-07-06 10:44:11.012 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 10:44:11.012 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.css - null null
+2024-07-06 10:44:11.024 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 11.9896ms
+2024-07-06 10:44:11.027 -04:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-07-06 10:44:11.030 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.css - 200 218 text/css 18.3531ms
+2024-07-06 10:44:11.032 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2024-07-06 10:44:11.075 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.15ms
+2024-07-06 10:44:11.670 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2024-07-06 10:44:11.688 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 10:44:11.976 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 305.6091ms
+2024-07-06 10:44:48.347 -04:00 [INF] Registered 7 endpoints in 384 milliseconds.
+2024-07-06 10:44:48.473 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 10:44:48.604 -04:00 [INF] Now listening on: https://localhost:7056
+2024-07-06 10:44:48.605 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:44:48.607 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:44:48.608 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:44:49.307 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2024-07-06 10:44:49.534 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html; charset=utf-8 232.2314ms
+2024-07-06 10:44:49.552 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2024-07-06 10:44:49.561 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2024-07-06 10:44:49.569 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 17.826ms
+2024-07-06 10:44:49.606 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.3568ms
+2024-07-06 10:44:50.158 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2024-07-06 10:44:50.170 -04:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-07-06 10:44:50.703 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 545.5387ms
+2024-07-06 10:45:17.865 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7056/users - application/json 61
+2024-07-06 10:45:17.876 -04:00 [INF] Executing endpoint 'HTTP: POST /users'
+2024-07-06 10:45:18.994 -04:00 [INF] Executed DbCommand (30ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-07-06 10:45:19.078 -04:00 [INF] Executed endpoint 'HTTP: POST /users'
+2024-07-06 10:45:19.087 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7056/users - 200 null null 1222.6896ms
+2024-07-06 10:45:24.917 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7056/users - application/json 61
+2024-07-06 10:45:24.921 -04:00 [INF] Executing endpoint 'HTTP: POST /users'
+2024-07-06 10:45:25.035 -04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-07-06 10:45:25.039 -04:00 [INF] Executed endpoint 'HTTP: POST /users'
+2024-07-06 10:45:25.040 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7056/users - 200 null null 123.1512ms
+2024-07-06 10:45:32.362 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7056/users/login - application/json 61
+2024-07-06 10:45:32.366 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:45:36.462 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:45:51.476 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:45:51.480 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7056/users/login - 401 null null 19117.5802ms
+2024-07-06 10:46:27.981 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7056/users - application/json 62
+2024-07-06 10:46:27.986 -04:00 [INF] Executing endpoint 'HTTP: POST /users'
+2024-07-06 10:46:38.283 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-07-06 10:46:38.407 -04:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 21), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Discriminator], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2024-07-06 10:46:40.187 -04:00 [INF] Executed endpoint 'HTTP: POST /users'
+2024-07-06 10:46:40.189 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7056/users - 200 null null 12208.0972ms
+2024-07-06 10:46:49.724 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7056/users/login - application/json 62
+2024-07-06 10:46:49.728 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:46:53.196 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:47:02.985 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:47:02.990 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7056/users/login - 401 null null 13265.5428ms
+2024-07-06 10:47:18.325 -04:00 [INF] Registered 7 endpoints in 177 milliseconds.
+2024-07-06 10:47:18.375 -04:00 [INF] User profile is available. Using 'C:\Users\khrah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-06 10:47:18.409 -04:00 [INF] Now listening on: http://localhost:5120
+2024-07-06 10:47:18.410 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 10:47:18.411 -04:00 [INF] Hosting environment: Development
+2024-07-06 10:47:18.412 -04:00 [INF] Content root path: C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Web
+2024-07-06 10:47:27.822 -04:00 [INF] Request starting HTTP/1.1 POST http://localhost:5120/users/login - application/json 64
+2024-07-06 10:47:27.851 -04:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2024-07-06 10:47:28.390 -04:00 [INF] Executed DbCommand (13ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users].[AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'ApplicationUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-07-06 10:47:28.485 -04:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2024-07-06 10:47:28.487 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: 'SigningKey' is required!
+   at FastEndpoints.Security.JwtBearer.CreateToken(Action`1 options)
+   at FastEndpoints.Security.JWTBearer.CreateToken(String signingKey, Nullable`1 expireAt, IEnumerable`1 permissions, IEnumerable`1 roles, IEnumerable`1 claims, String issuer, String audience, TokenSigningStyle signingStyle)
+   at FastEndpoints.Security.JWTBearer.CreateToken(String signingKey, Action`1 privileges, String issuer, String audience, Nullable`1 expireAt, TokenSigningStyle signingStyle)
+   at RiverBooks.Users.UserEndpoints.Login.HandleAsync(UserLoginRequest request, CancellationToken ct) in C:\Users\khrah\Desktop\Repos\ModularMonoliths\src\RiverBooks.Users\UserEndpoints\Login.cs:line 42
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-07-06 10:47:28.503 -04:00 [INF] Request finished HTTP/1.1 POST http://localhost:5120/users/login - 500 null text/plain; charset=utf-8 681.3415ms
+2024-07-06 10:48:17.389 -04:00 [INF] Application is shutting down...

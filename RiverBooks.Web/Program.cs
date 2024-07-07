@@ -1,4 +1,7 @@
-﻿using FastEndpoints;
+﻿using System.Reflection;
+using FastEndpoints;
+using FastEndpoints.Security;
+using FastEndpoints.Swagger;
 using Microsoft.OpenApi.Models;
 using RiverBooks.Books;
 using RiverBooks.Users;
@@ -17,35 +20,43 @@ builder.Host.UseSerilog((_, config) =>
     config.ReadFrom.Configuration(builder.Configuration));
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(config =>
-{
-    config.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "V1" });
-});
+builder.Services.AddFastEndpoints()
+    .AddJWTBearerAuth(builder.Configuration["Auth:JwtSecret"]!)
+    .AddAuthorization()
+    .SwaggerDocument();
 
-builder.Services.AddFastEndpoints();
+// Add Module Services
+List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
+builder.Services.AddBookServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddUserModuleServices(builder.Configuration, logger, mediatRAssemblies);
 
-builder.Services.AddBookServices(builder.Configuration, logger);
-builder.Services.AddUserModuleServices(builder.Configuration, logger);
+// Set up MediatR
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
+
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(config =>
-    {
-        config.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
-    });
-}
+app.UseAuthentication()
+    .UseAuthorization();
+
+//// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI(config =>
+//    {
+//        config.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
+//    });
+//}
 
 
 // 
 // app.UseHttpsRedirection();
 
-app.UseFastEndpoints();
+app.UseFastEndpoints()
+    .UseSwaggerGen();
 
 app.Run();
 
